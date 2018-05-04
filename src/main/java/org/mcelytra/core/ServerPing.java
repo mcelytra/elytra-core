@@ -1,7 +1,11 @@
 package org.mcelytra.core;
 
+import com.google.gson.*;
 import com.mojang.authlib.GameProfile;
-import net.md_5.bungee.api.chat.BaseComponent;
+import net.md_5.bungee.api.ChatColor;
+import net.md_5.bungee.api.chat.*;
+import net.md_5.bungee.chat.*;
+import org.aperlambda.lambdacommon.LambdaConstants;
 import org.jetbrains.annotations.NotNull;
 
 import javax.imageio.ImageIO;
@@ -9,8 +13,11 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Represents a server ping result.
@@ -201,5 +208,112 @@ public class ServerPing
 	public void setPlayers(List<GameProfile> players)
 	{
 		this.players = players;
+	}
+
+	/**
+	 * Represents the JSON serializer of {@link ServerPing}.
+	 */
+	public static class Serializer implements JsonSerializer<ServerPing>, JsonDeserializer<ServerPing>
+	{
+		private final static Gson gson = new GsonBuilder().
+				registerTypeAdapter(ServerPing.class, new Serializer()).
+				create();
+
+		/**
+		 * Parses the given JSON string as a ServerPing.
+		 *
+		 * @param json The JSON string.
+		 * @return The parsed ServerPing.
+		 */
+		public static ServerPing parse(String json)
+		{
+			return gson.fromJson(LambdaConstants.JSON_PARSER.parse(json), ServerPing.class);
+		}
+
+		/**
+		 * Gets the given ServerPing as a JSON string.
+		 *
+		 * @param serverPing The ServerPing to transform.
+		 * @return The JSON string.
+		 */
+		public static String toString(ServerPing serverPing)
+		{
+			return gson.toJson(serverPing);
+		}
+
+		@Override
+		public ServerPing deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext context) throws JsonParseException
+		{
+			ServerPing obj = new ServerPing();
+			if (jsonElement instanceof JsonObject)
+			{
+				JsonObject json = (JsonObject) jsonElement;
+				if (json.get("version") instanceof JsonObject)
+				{
+					JsonObject version = json.getAsJsonObject("version");
+					obj.setVersionName(version.get("name").getAsString());
+					obj.setProtocol(version.get("protocol").getAsInt());
+				}
+				obj.setMotd(ComponentSerializer.parse(json.get("description").toString()));
+				if (json.get("players") instanceof JsonObject)
+				{
+					JsonObject playerData = json.getAsJsonObject("players");
+					obj.setOnlineCount(playerData.get("online").getAsInt());
+					obj.setMaxPlayers(playerData.get("max").getAsInt());
+					if (json.get("sample") instanceof JsonArray)
+					{
+						JsonArray sample = json.getAsJsonArray("sample");
+						List<GameProfile> players = new ArrayList<>();
+						sample.forEach(element -> {
+							if (element instanceof JsonObject)
+							{
+								JsonObject json_obj = (JsonObject) element;
+								players.add(new GameProfile(UUID.fromString(json_obj.get("id").getAsString()), json_obj.get("name").getAsString()));
+							}
+						});
+						obj.setPlayers(players);
+					}
+				}
+				obj.setFavicon(json.get("favicon").getAsString());
+			}
+			return obj;
+		}
+
+		@Override
+		public JsonElement serialize(ServerPing ping, Type type, JsonSerializationContext context)
+		{
+			JsonObject json = new JsonObject();
+
+			// Version data
+			JsonObject version = new JsonObject();
+			version.addProperty("protocol", ping.getProtocol());
+			version.addProperty("name", ping.getVersionName());
+			json.add("version", version);
+
+			// Motd
+			json.add("description", LambdaConstants.JSON_PARSER.parse(ComponentSerializer.toString(ping.getMotd())));
+
+			// Favicon
+			if ((ping.getFavicon() != null) && (!ping.getFavicon().isEmpty()))
+				json.addProperty("favicon", ping.getFavicon());
+
+			// Players data
+			JsonObject players = new JsonObject();
+			players.addProperty("online", ping.getOnlineCount());
+			players.addProperty("max", ping.getMaxPlayers());
+
+			JsonArray sample = new JsonArray();
+			ping.getPlayers().stream().map(player -> {
+				JsonObject playerJson = new JsonObject();
+				playerJson.addProperty("name", player.getName() + ChatColor.RESET);
+				playerJson.addProperty("id", player.getId().toString());
+				return playerJson;
+			}).forEach(sample::add);
+
+			players.add("sample", sample);
+
+			json.add("players", players);
+			return json;
+		}
 	}
 }
