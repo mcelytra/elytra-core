@@ -251,16 +251,20 @@ public class ServerPing
 				if (json.get("version") instanceof JsonObject)
 				{
 					JsonObject version = json.getAsJsonObject("version");
-					obj.setVersionName(version.get("name").getAsString());
-					obj.setProtocol(version.get("protocol").getAsInt());
+					if (version.has("name"))
+						obj.setVersionName(version.get("name").getAsString());
+					if (version.has("protocol"))
+						obj.setProtocol(version.get("protocol").getAsInt());
 				}
 				obj.setMotd(ComponentSerializer.parse(json.get("description").toString()));
-				if (json.get("players") instanceof JsonObject)
+				if (json.has("players") && json.get("players") instanceof JsonObject)
 				{
 					JsonObject playerData = json.getAsJsonObject("players");
-					obj.setOnlineCount(playerData.get("online").getAsInt());
-					obj.setMaxPlayers(playerData.get("max").getAsInt());
-					if (json.get("sample") instanceof JsonArray)
+					if (playerData.has("online"))
+						obj.setOnlineCount(playerData.get("online").getAsInt());
+					if (playerData.has("max"))
+						obj.setMaxPlayers(playerData.get("max").getAsInt());
+					if (json.has("sample") && json.get("sample") instanceof JsonArray)
 					{
 						JsonArray sample = json.getAsJsonArray("sample");
 						List<GameProfile> players = new ArrayList<>();
@@ -274,7 +278,9 @@ public class ServerPing
 						obj.setPlayers(players);
 					}
 				}
-				obj.setFavicon(json.get("favicon").getAsString());
+
+				if (json.has("favicon"))
+					obj.setFavicon(json.get("favicon").getAsString());
 			}
 			return obj;
 		}
@@ -294,7 +300,7 @@ public class ServerPing
 			json.add("description", LambdaConstants.JSON_PARSER.parse(ComponentSerializer.toString(ping.getMotd())));
 
 			// Favicon
-			if ((ping.getFavicon() != null) && (!ping.getFavicon().isEmpty()))
+			if (!((ping.getFavicon() == null) || ping.getFavicon().isEmpty()))
 				json.addProperty("favicon", ping.getFavicon());
 
 			// Players data
