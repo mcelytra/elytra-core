@@ -32,7 +32,7 @@ public class ServerPing
 	private String            versionName = "";
 	private int               protocol    = 0;
 	private BaseComponent[]   motd        = new BaseComponent[0];
-	private List<GameProfile> players     = Collections.emptyList();
+	private List<GameProfile> players     = new ArrayList<>();
 
 	public ServerPing()
 	{
@@ -210,7 +210,7 @@ public class ServerPing
 	public void setPlayers(List<GameProfile> players)
 	{
 		if (players == null)
-			this.players = Collections.emptyList();
+			this.players = new ArrayList<>();
 		this.players = players;
 	}
 
