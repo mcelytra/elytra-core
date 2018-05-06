@@ -124,7 +124,8 @@ public class ServerPing
 			ByteArrayOutputStream ouput = new ByteArrayOutputStream();
 			ImageIO.write(image, "png", ouput);
 			ouput.flush();
-			this.favicon = "data:image/png;base64," + Base64.getEncoder().encodeToString(ouput.toByteArray());
+			favicon = "data:image/png;base64,";
+			favicon += Base64.getEncoder().encodeToString(ouput.toByteArray());
 		}
 		else
 			throw new RuntimeException("The favicon image needs to be 64px of width and height!");
