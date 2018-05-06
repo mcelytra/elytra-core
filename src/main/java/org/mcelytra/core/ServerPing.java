@@ -7,6 +7,7 @@ import net.md_5.bungee.api.chat.*;
 import net.md_5.bungee.chat.*;
 import org.aperlambda.lambdacommon.LambdaConstants;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -14,10 +15,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.Base64;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * Represents a server ping result.
@@ -28,13 +26,17 @@ import java.util.UUID;
  */
 public class ServerPing
 {
-	private int               maxPlayers;
-	private int               online;
+	private int               maxPlayers  = 0;
+	private int               online      = 0;
 	private String            favicon;
-	private String            versionName;
-	private int               protocol;
-	private BaseComponent[]   motd;
-	private List<GameProfile> players;
+	private String            versionName = "";
+	private int               protocol    = 0;
+	private BaseComponent[]   motd        = new BaseComponent[0];
+	private List<GameProfile> players     = Collections.emptyList();
+
+	public ServerPing()
+	{
+	}
 
 	/**
 	 * Gets the maximum players displayed in the ping result.
@@ -195,7 +197,7 @@ public class ServerPing
 	 *
 	 * @return A list of players.
 	 */
-	public List<GameProfile> getPlayers()
+	public @NotNull List<GameProfile> getPlayers()
 	{
 		return players;
 	}
@@ -207,7 +209,31 @@ public class ServerPing
 	 */
 	public void setPlayers(List<GameProfile> players)
 	{
+		if (players == null)
+			this.players = Collections.emptyList();
 		this.players = players;
+	}
+
+	/**
+	 * Adds a player from the player list.
+	 *
+	 * @param player The player profile to add.
+	 */
+	public void addPlayer(@NotNull GameProfile player)
+	{
+		players.add(player);
+	}
+
+	/**
+	 * Removes a player from the player list.
+	 *
+	 * @param player The player profile to remove.
+	 */
+	public void removePlayer(@Nullable GameProfile player)
+	{
+		if (player == null)
+			return;
+		players.remove(player);
 	}
 
 	/**
