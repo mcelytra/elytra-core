@@ -1,5 +1,6 @@
 module org.mcelytra.core {
     exports org.mcelytra.core;
+    exports org.mcelytra.core.inventory;
 
     requires org.mcelytra.chat;
     requires org.aperlambda.lambdacommon;
