@@ -2,6 +2,8 @@ module org.mcelytra.core {
     exports org.mcelytra.core;
     exports org.mcelytra.core.entity;
     exports org.mcelytra.core.inventory;
+    exports org.mcelytra.core.network;
+    exports org.mcelytra.core.network.packets;
     exports org.mcelytra.core.permissions;
     exports org.mcelytra.core.tag;
 
