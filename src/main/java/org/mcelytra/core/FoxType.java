@@ -15,7 +15,7 @@ package org.mcelytra.core;
 public enum FoxType
 {
     RED(0),
-    SNOW(1);
+    ARCTIC(1);
 
     private final int value;
 

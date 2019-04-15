@@ -27,12 +27,14 @@ repositories {
 
 dependencies {
     compile 'org.mcelytra:elytra-chat:1.0.0-SNAPSHOT'
+    compile 'org.apache.logging.log4j:log4j-core:2.11.1'
     compile 'com.mojang:authlib:1.5.25'
 }
 
 javadoc {
     inputs.property("moduleName", moduleName)
     doFirst {
+        exclude "**/module-info.java"
         options.addStringOption('XDignore.symbol.file', '-html5')
         options.addStringOption('-module-path', classpath.asPath)
     }
