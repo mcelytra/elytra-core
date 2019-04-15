@@ -27,7 +27,7 @@ import java.util.UUID;
 
 public abstract class PacketBuffer extends ByteBuf
 {
-    private ByteBuf byte_buf;
+    protected ByteBuf byte_buf;
 
     public PacketBuffer(ByteBuf byte_buf)
     {
