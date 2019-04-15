@@ -10,6 +10,8 @@ module org.mcelytra.core {
     requires org.apache.logging.log4j;
     requires java.desktop;
 
+    requires netty.all;
+
     requires bungeecord.chat;
     requires authlib;
     requires annotations;
