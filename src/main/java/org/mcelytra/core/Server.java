@@ -20,6 +20,7 @@ public abstract class Server implements Nameable
     protected Logger     logger;
     protected int        tcp_port;
     protected int        bedrock_port;
+    protected boolean    running;
     protected ServerPing server_ping;
 
     public Server(Logger logger)
@@ -101,6 +102,21 @@ public abstract class Server implements Nameable
     {
         return this.bedrock_port;
     }
+
+    /**
+     * Checks whether the server is running or not.
+     *
+     * @return True if the server is running, else false.
+     */
+    public boolean is_running()
+    {
+        return this.running;
+    }
+
+    /**
+     * Shutdowns the server.
+     */
+    public abstract void shutdown();
 
     public ServerPing get_server_ping()
     {
