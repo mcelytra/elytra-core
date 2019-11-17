@@ -1,0 +1,28 @@
+# Elytra server configuration
+
+# Enables debug mode.
+debug = false
+# The server's name.
+server_name = "ElytraServer"
+# Maximum player count connected at once.
+max_players = 20
+# Enables Online Mode (recommended).
+online_mode = true
+# Enables or disables the whitelist.
+whitelist = false
+# Enables the support of Minecraft Bedrock Edition. (Experimental)
+enable_bedrock_support = false
+
+# The MOTD of the server.
+[motd]
+  line1 = "&rWelcome to ${server_name}"
+  line2 = "Hope you enjoy!"
+
+# Network configuration.
+[network]
+  # The TCP port used for Minecraft Java Edition.
+  port = 25565
+  # The UDP port used for Minecraft Bedrock Edition.
+  bedrock_port = 19132
+  # The compression threshold of packets. (For Java Edition)
+  compression_threshold = 256

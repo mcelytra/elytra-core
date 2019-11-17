@@ -31,30 +31,30 @@ public enum GameMode
      */
     SPECTATOR(3);
 
-    private final int value;
+    private final int id;
 
-    GameMode(int value)
+    GameMode(int id)
     {
-        this.value = value;
+        this.id = id;
     }
 
     /**
-     * Gets the value corresponding to the game mode.
+     * Gets the id corresponding to the game mode.
      *
-     * @return The value of the game mode.
+     * @return The id of the game mode.
      */
-    public int get_value()
+    public int get_id()
     {
-        return this.value;
+        return this.id;
     }
 
     /**
-     * Gets the game mode from its corresponding value.
+     * Gets the game mode from its corresponding id.
      *
-     * @param value The value of the game mode.
-     * @return The game mode from its value, or null if invalid.
+     * @param value The id of the game mode.
+     * @return The game mode from its id, or null if invalid.
      */
-    public static GameMode from_value(int value)
+    public static GameMode from_id(int value)
     {
         if (value >= GameMode.values().length || value < 0)
             return null;

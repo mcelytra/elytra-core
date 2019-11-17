@@ -9,12 +9,13 @@
 
 package org.mcelytra.core;
 
-import java.util.Arrays;
+import org.aperlambda.lambdacommon.utils.Nameable;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Represents a difficulty.
  */
-public enum Difficulty
+public enum Difficulty implements Nameable
 {
     /**
      * Players regain health over time, hostile mobs don't spawn and the hunger bar does not decrease.
@@ -48,6 +49,12 @@ public enum Difficulty
     int get_value()
     {
         return this.difficulty;
+    }
+
+    @Override
+    public @NotNull String get_name()
+    {
+        return this.name().toLowerCase();
     }
 
     /**

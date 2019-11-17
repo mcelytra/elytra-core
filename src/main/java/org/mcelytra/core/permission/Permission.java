@@ -7,7 +7,7 @@
  * see the LICENSE file.
  */
 
-package org.mcelytra.core.permissions;
+package org.mcelytra.core.permission;
 
 import org.aperlambda.lambdacommon.resources.ResourceName;
 import org.aperlambda.lambdacommon.utils.ResourceNameable;

@@ -1,32 +1,29 @@
 plugins {
-    id 'org.gradle.java.experimental-jigsaw' version '0.1.1'
+    id 'java-library'
+    id 'maven-publish'
+    id 'signing'
 }
-
-apply plugin: 'java'
-apply plugin: 'maven'
-apply plugin: 'maven-publish'
-apply plugin: 'signing'
 
 group = 'org.mcelytra'
 version = '1.0.0-SNAPSHOT'
 
-sourceCompatibility = 10
+sourceCompatibility = 8
 
 ext.moduleName = 'org.mcelytra.core'
 
-javaModule.name = 'org.mcelytra.core'
 compileJava.options.encoding = 'UTF-8'
 
 repositories {
+    mavenCentral()
     maven { url = 'https://hub.spigotmc.org/nexus/content/groups/public/' }
     maven { url = 'https://aperlambda.github.io/maven' }
     maven { url = 'https://mcelytra.github.io/maven/' }
     maven { url = 'https://libraries.minecraft.net/' }
-    mavenCentral()
 }
 
 dependencies {
     compile 'org.mcelytra:elytra-chat:1.0.0-SNAPSHOT'
+    compile 'com.electronwill.night-config:toml:3.5.3'
     compile 'io.netty:netty-all:4.1.34.Final'
     compile 'org.apache.logging.log4j:log4j-core:2.11.1'
     compile 'com.mojang:authlib:1.5.25'
@@ -49,22 +46,18 @@ jar {
     }
 }
 
-task sourcesJar(type: Jar, dependsOn: classes) {
+task sourcesJar(type: Jar) {
+    from sourceSets.main.allJava
     classifier = 'sources'
-    from sourceSets.main.allSource
 }
 
-task javadocJar(type: Jar, dependsOn: javadoc) {
+task javadocJar(type: Jar) {
+    from javadoc
     classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-
-artifacts {
-    archives sourcesJar
-    archives javadocJar
 }
 
 signing {
+    useGpgCmd()
     sign configurations.archives
 }
 
@@ -72,9 +65,7 @@ publishing {
     publications {
         elytracore(MavenPublication) {
             from components.java
-            groupId = project.group
             artifactId = 'elytra-core'
-            version = project.version
 
             artifact sourcesJar
             artifact javadocJar
