@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="WARN">
     <Appenders>
-        <Console name="Console" target="SYSTEM_OUT">
+        <Console identifier="Console" target="SYSTEM_OUT">
             <PatternLayout pattern="[%d{HH:mm:ss} %level]: %msg%n" />
         </Console>
-        <RollingRandomAccessFile name="File" fileName="logs/latest.log" filePattern="logs/%d{yyyy-MM-dd}-%i.log">
+        <RollingRandomAccessFile identifier="File" fileName="logs/latest.log" filePattern="logs/%d{yyyy-MM-dd}-%i.log">
             <PatternLayout pattern="[%d{HH:mm:ss}] [%t/%level]: %msg%n" />
             <Policies>
                 <TimeBasedTriggeringPolicy />

@@ -9,21 +9,21 @@
 
 package org.mcelytra.core.tag;
 
-import org.aperlambda.lambdacommon.resources.ResourceName;
+import org.aperlambda.lambdacommon.Identifier;
 
 /**
  * Represents a tag
  */
 public class Tag<T>
 {
-    private final ResourceName id;
+    private final Identifier id;
 
-    public Tag(ResourceName resource_name)
+    public Tag(Identifier identifier)
     {
-        this.id = resource_name;
+        this.id = identifier;
     }
 
-    public ResourceName get_id()
+    public Identifier get_id()
     {
         return this.id;
     }

@@ -10,7 +10,7 @@
 package org.mcelytra.core.event.player;
 
 import net.md_5.bungee.api.chat.BaseComponent;
-import org.aperlambda.lambdacommon.resources.ResourceName;
+import org.aperlambda.lambdacommon.Identifier;
 import org.jetbrains.annotations.NotNull;
 import org.mcelytra.core.entity.EntityPlayer;
 import org.mcelytra.core.event.HandlerList;
@@ -25,7 +25,7 @@ public class PlayerLeaveEvent extends PlayerEvent
 
     public PlayerLeaveEvent(@NotNull EntityPlayer player, @NotNull BaseComponent[] leave_message)
     {
-        super(new ResourceName("elytra:player_leave"), player);
+        super(new Identifier("elytra", "player_leave"), player);
         this.leave_message = leave_message;
     }
 

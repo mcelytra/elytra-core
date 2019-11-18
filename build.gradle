@@ -14,6 +14,7 @@ ext.moduleName = 'org.mcelytra.core'
 compileJava.options.encoding = 'UTF-8'
 
 repositories {
+    mavenLocal()
     mavenCentral()
     maven { url = 'https://hub.spigotmc.org/nexus/content/groups/public/' }
     maven { url = 'https://aperlambda.github.io/maven' }
@@ -54,11 +55,6 @@ task sourcesJar(type: Jar) {
 task javadocJar(type: Jar) {
     from javadoc
     classifier = 'javadoc'
-}
-
-signing {
-    useGpgCmd()
-    sign configurations.archives
 }
 
 publishing {

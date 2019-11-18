@@ -14,6 +14,8 @@ import org.mcelytra.core.item.ItemConvertible;
 
 public class ItemStack
 {
+    public static final ItemStack EMPTY = new ItemStack(null, 0);
+
     private final Item item;
     private       int  count;
 
@@ -26,6 +28,16 @@ public class ItemStack
     {
         this.item = item == null ? null : item.as_item();
         this.count = count;
+    }
+
+    /**
+     * Gets the item in this stack.
+     *
+     * @return The item in this stack.
+     */
+    public Item get_item()
+    {
+        return this.item;
     }
 
     /**
@@ -46,5 +58,19 @@ public class ItemStack
     public void set_count(int count)
     {
         this.count = count;
+    }
+
+    /**
+     * Copies this stack of items.
+     *
+     * @return A new stack of items equivalent to the original stack.
+     */
+    public ItemStack copy()
+    {
+        if (this == EMPTY)
+            return EMPTY;
+
+        ItemStack stack = new ItemStack(this.get_item(), this.count);
+        return stack;
     }
 }

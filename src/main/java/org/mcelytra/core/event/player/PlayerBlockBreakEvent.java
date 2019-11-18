@@ -9,7 +9,7 @@
 
 package org.mcelytra.core.event.player;
 
-import org.aperlambda.lambdacommon.resources.ResourceName;
+import org.aperlambda.lambdacommon.Identifier;
 import org.aperlambda.lambdacommon.utils.Cancellable;
 import org.jetbrains.annotations.NotNull;
 import org.mcelytra.core.entity.EntityPlayer;
@@ -22,7 +22,7 @@ public class PlayerBlockBreakEvent extends PlayerEvent implements Cancellable
 
     public PlayerBlockBreakEvent(EntityPlayer player)
     {
-        super(new ResourceName("elytra:player_block_break"), player);
+        super(new Identifier("elytra", "player_block_break"), player);
         this.cancelled = false;
     }
 
@@ -46,6 +46,7 @@ public class PlayerBlockBreakEvent extends PlayerEvent implements Cancellable
 
     /**
      * Gets the handler list of the event.
+     *
      * @return The handler list of the event.
      */
     public static @NotNull HandlerList get_handler_list()

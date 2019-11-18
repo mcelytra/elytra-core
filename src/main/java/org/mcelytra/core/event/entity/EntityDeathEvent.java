@@ -9,7 +9,7 @@
 
 package org.mcelytra.core.event.entity;
 
-import org.aperlambda.lambdacommon.resources.ResourceName;
+import org.aperlambda.lambdacommon.Identifier;
 import org.jetbrains.annotations.NotNull;
 import org.mcelytra.core.entity.EntityLiving;
 import org.mcelytra.core.event.HandlerList;
@@ -23,7 +23,7 @@ public class EntityDeathEvent extends EntityEvent<EntityLiving>
 
     public EntityDeathEvent(@NotNull EntityLiving entity)
     {
-        super(new ResourceName("elytra:entity_death"), entity);
+        super(new Identifier("elytra", "entity_death"), entity);
     }
 
     @Override

@@ -9,33 +9,33 @@
 
 package org.mcelytra.core.event;
 
-import org.aperlambda.lambdacommon.resources.ResourceName;
-import org.aperlambda.lambdacommon.utils.ResourceNameable;
+import org.aperlambda.lambdacommon.Identifier;
+import org.aperlambda.lambdacommon.utils.Identifiable;
 import org.jetbrains.annotations.NotNull;
 
 /**
  * Represents an event.
  */
-public abstract class Event implements ResourceNameable
+public abstract class Event implements Identifiable
 {
-    private ResourceName name;
-    private boolean      async;
+    private Identifier identifier;
+    private boolean    async;
 
-    public Event(ResourceName name)
+    public Event(Identifier identifier)
     {
-        this(name, false);
+        this(identifier, false);
     }
 
-    public Event(ResourceName name, boolean async)
+    public Event(Identifier identifier, boolean async)
     {
-        this.name = name;
+        this.identifier = identifier;
         this.async = async;
     }
 
     @Override
-    public @NotNull ResourceName get_resource_name()
+    public @NotNull Identifier get_identifier()
     {
-        return this.name;
+        return this.identifier;
     }
 
     /**

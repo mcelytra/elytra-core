@@ -9,7 +9,7 @@
 
 package org.mcelytra.core.event.network;
 
-import org.aperlambda.lambdacommon.resources.ResourceName;
+import org.aperlambda.lambdacommon.Identifier;
 import org.aperlambda.lambdacommon.utils.Cancellable;
 import org.jetbrains.annotations.NotNull;
 import org.mcelytra.core.ServerPing;
@@ -30,7 +30,7 @@ public class ServerStatusResponseEvent extends Event implements Cancellable
 
     public ServerStatusResponseEvent(InetSocketAddress player_address, @NotNull ServerPing server_ping)
     {
-        super(new ResourceName("elytra:server_ping"), true);
+        super(new Identifier("elytra", "server_ping"), true);
         this.player_address = player_address;
         this.server_ping = server_ping;
         this.cancelled = false;

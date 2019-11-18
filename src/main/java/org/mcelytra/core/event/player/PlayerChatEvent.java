@@ -9,7 +9,7 @@
 
 package org.mcelytra.core.event.player;
 
-import org.aperlambda.lambdacommon.resources.ResourceName;
+import org.aperlambda.lambdacommon.Identifier;
 import org.aperlambda.lambdacommon.utils.Cancellable;
 import org.jetbrains.annotations.NotNull;
 import org.mcelytra.core.entity.EntityPlayer;
@@ -26,7 +26,7 @@ public class PlayerChatEvent extends PlayerEvent implements Cancellable
 
     public PlayerChatEvent(@NotNull EntityPlayer player, String message, boolean async)
     {
-        super(new ResourceName("elytra:player_chat"), player, async);
+        super(new Identifier("elytra", "player_chat"), player, async);
         this.message = message;
     }
 

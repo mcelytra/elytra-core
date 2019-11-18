@@ -35,7 +35,7 @@ public class EventManager
                         try {
                             listener.call(event);
                         } catch (Throwable e) {
-                            Elytra.get_logger().error("Could not pass event " + event.get_resource_name().toString() + " to " + listener.get_addon().get_name());
+                            Elytra.get_logger().error("Could not pass event " + event.get_identifier().toString() + " to " + listener.get_addon().get_name());
                         }
                     }
                 });

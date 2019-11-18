@@ -9,27 +9,27 @@
 
 package org.mcelytra.core.permission;
 
-import org.aperlambda.lambdacommon.resources.ResourceName;
-import org.aperlambda.lambdacommon.utils.ResourceNameable;
+import org.aperlambda.lambdacommon.Identifier;
+import org.aperlambda.lambdacommon.utils.Identifiable;
 import org.jetbrains.annotations.NotNull;
 
 /**
  * Represents a permission.
  */
-public class Permission implements ResourceNameable
+public class Permission implements Identifiable
 {
-    private final ResourceName id;
-    private       String       description;
+    private final Identifier identifier;
+    private       String     description;
 
-    public Permission(ResourceName id)
+    public Permission(Identifier identifier)
     {
-        this.id = id;
+        this.identifier = identifier;
     }
 
     @Override
-    public @NotNull ResourceName get_resource_name()
+    public @NotNull Identifier get_identifier()
     {
-        return this.id;
+        return this.identifier;
     }
 
     public String get_description()

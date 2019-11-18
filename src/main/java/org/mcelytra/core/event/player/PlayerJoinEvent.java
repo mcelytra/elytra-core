@@ -10,7 +10,7 @@
 package org.mcelytra.core.event.player;
 
 import net.md_5.bungee.api.chat.BaseComponent;
-import org.aperlambda.lambdacommon.resources.ResourceName;
+import org.aperlambda.lambdacommon.Identifier;
 import org.jetbrains.annotations.NotNull;
 import org.mcelytra.core.entity.EntityPlayer;
 import org.mcelytra.core.event.HandlerList;
@@ -20,7 +20,7 @@ import org.mcelytra.core.event.HandlerList;
  */
 public class PlayerJoinEvent extends PlayerEvent
 {
-    private static final ResourceName    EVENT_NAME = new ResourceName("elytra:player_join");
+    private static final Identifier      EVENT_NAME = new Identifier("elytra", "player_join");
     private static final HandlerList     HANDLERS   = new HandlerList();
     private              BaseComponent[] join_message;
     private              boolean         renamed    = false;

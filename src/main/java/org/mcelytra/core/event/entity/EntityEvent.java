@@ -9,7 +9,7 @@
 
 package org.mcelytra.core.event.entity;
 
-import org.aperlambda.lambdacommon.resources.ResourceName;
+import org.aperlambda.lambdacommon.Identifier;
 import org.jetbrains.annotations.NotNull;
 import org.mcelytra.core.entity.Entity;
 import org.mcelytra.core.event.Event;
@@ -21,15 +21,15 @@ public abstract class EntityEvent<T extends Entity> extends Event
 {
     protected T entity;
 
-    public EntityEvent(@NotNull ResourceName name, @NotNull T entity)
+    public EntityEvent(@NotNull Identifier identifier, @NotNull T entity)
     {
-        super(name);
+        super(identifier);
         this.entity = entity;
     }
 
-    public EntityEvent(@NotNull ResourceName name, @NotNull T entity, boolean async)
+    public EntityEvent(@NotNull Identifier identifier, @NotNull T entity, boolean async)
     {
-        super(name, async);
+        super(identifier, async);
         this.entity = entity;
     }
 

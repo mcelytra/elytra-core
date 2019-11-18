@@ -9,7 +9,7 @@
 
 package org.mcelytra.core.event.entity;
 
-import org.aperlambda.lambdacommon.resources.ResourceName;
+import org.aperlambda.lambdacommon.Identifier;
 import org.aperlambda.lambdacommon.utils.Cancellable;
 import org.jetbrains.annotations.NotNull;
 import org.mcelytra.core.Hand;
@@ -28,7 +28,7 @@ public class EntityResurrectEvent extends EntityEvent<EntityLiving> implements C
 
     public EntityResurrectEvent(@NotNull EntityLiving entity, @NotNull Hand hand)
     {
-        super(new ResourceName("elytra:entity_resurrect"), entity);
+        super(new Identifier("elytra", "entity_resurrect"), entity);
         this.hand = hand;
     }
 
