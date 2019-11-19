@@ -2,7 +2,7 @@
 
 # Enables debug mode.
 debug = false
-# The server's identifier.
+# The server's name.
 server_name = "ElytraServer"
 # Maximum player count connected at once.
 max_players = 20

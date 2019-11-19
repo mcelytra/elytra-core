@@ -9,16 +9,24 @@
 
 package org.mcelytra.core.item;
 
+import org.aperlambda.lambdacommon.Identifier;
+import org.aperlambda.lambdacommon.utils.Identifiable;
 import org.jetbrains.annotations.NotNull;
 
 /**
  * Represents an item.
  */
-public class Item implements ItemConvertible
+public interface Item extends ItemConvertible, Identifiable
 {
     @Override
-    public @NotNull Item as_item()
+    default @NotNull Item as_item()
     {
         return this;
+    }
+
+    @Override
+    default @NotNull Identifier get_identifier()
+    {
+        return null;
     }
 }

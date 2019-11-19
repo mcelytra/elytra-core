@@ -15,6 +15,7 @@ import org.jetbrains.annotations.NotNull;
 import org.mcelytra.core.Hand;
 import org.mcelytra.core.entity.EntityLiving;
 import org.mcelytra.core.event.HandlerList;
+import org.mcelytra.core.inventory.ItemStack;
 
 /**
  * Thrown when an entity resurrects.
@@ -23,13 +24,15 @@ public class EntityResurrectEvent extends EntityEvent<EntityLiving> implements C
 {
     private static final HandlerList HANDLERS     = new HandlerList();
     private              Hand        hand;
+    private              ItemStack   item_stack;
     private              boolean     consume_item = true;
     private              boolean     cancelled    = false;
 
-    public EntityResurrectEvent(@NotNull EntityLiving entity, @NotNull Hand hand)
+    public EntityResurrectEvent(@NotNull EntityLiving entity, @NotNull Hand hand, @NotNull ItemStack stack)
     {
         super(new Identifier("elytra", "entity_resurrect"), entity);
         this.hand = hand;
+        this.item_stack = stack;
     }
 
     /**
@@ -40,6 +43,16 @@ public class EntityResurrectEvent extends EntityEvent<EntityLiving> implements C
     public @NotNull Hand get_hand()
     {
         return this.hand;
+    }
+
+    /**
+     * Gets the item stack which contains the totem of undying.
+     *
+     * @return The item stack which contains the totem.
+     */
+    public @NotNull ItemStack get_item_stack()
+    {
+        return this.item_stack;
     }
 
     /**
