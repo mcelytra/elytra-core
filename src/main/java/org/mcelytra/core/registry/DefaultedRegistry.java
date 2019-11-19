@@ -29,7 +29,7 @@ public class DefaultedRegistry<T> extends SimpleRegistry<T>
     }
 
     @Override
-    public <V extends T> T set(@NotNull Identifier id, @NotNull V entry)
+    protected <V extends T> T set(@NotNull Identifier id, @NotNull V entry)
     {
         if (id.equals(this.default_id))
             this.default_value = entry;
@@ -37,7 +37,7 @@ public class DefaultedRegistry<T> extends SimpleRegistry<T>
     }
 
     @Override
-    public @Nullable Identifier get_id(@NotNull T entry)
+    public @NotNull Identifier get_id(@NotNull T entry)
     {
         Identifier res = super.get_id(entry);
         return res == null ? this.default_id : res;

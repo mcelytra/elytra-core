@@ -10,10 +10,13 @@
 package org.mcelytra.core.registry;
 
 import org.aperlambda.lambdacommon.Identifier;
+import org.aperlambda.lambdacommon.utils.Pair;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
@@ -81,6 +84,27 @@ public abstract class Registry<T> implements Iterable<T>
      * @return True if this registry is empty, else false.
      */
     public abstract boolean is_empty();
+
+    /**
+     * Returns the size of this registry.
+     *
+     * @return The size of this registry.
+     */
+    public abstract int get_size();
+
+    /**
+     * Returns the identifiers present in this registry.
+     *
+     * @return The identifiers present in this registry.
+     */
+    public abstract Set<Identifier> get_ids();
+
+    /**
+     * Returns the entries present in this registry.
+     *
+     * @return The entries as a list.
+     */
+    public abstract List<Pair<Identifier, T>> get_entries();
 
     public Stream<T> stream()
     {
