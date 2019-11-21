@@ -93,4 +93,40 @@ public final class Items
     public static final Identifier GLASS                  = mc("glass");
     public static final Identifier LAPIS_ORE              = mc("lapis_ore");
     public static final Identifier LAPIS_BLOCK            = mc("lapis_block");
+    public static final Identifier SANDSTONE              = mc("sandstone");
+    public static final Identifier CHISELED_SANDSTONE     = mc("chiseled_sandstone");
+    public static final Identifier CUT_SANDSTONE          = mc("cut_sandstone");
+    public static final Identifier COBWEB                 = mc("cobweb");
+    public static final Identifier GRASS                  = mc("grass");
+    public static final Identifier FERN                   = mc("fern");
+    public static final Identifier DEAD_BUSH              = mc("dead_bush");
+    public static final Identifier SEAGRASS               = mc("seagrass");
+    public static final Identifier SEA_PICKLE             = mc("sea_pickle");
+    public static final Identifier WHITE_WOOL             = mc("white_wool");
+    public static final Identifier ORANGE_WOOL            = mc("orange_wool");
+    public static final Identifier MAGENTA_WOOL           = mc("magenta_wool");
+    public static final Identifier LIGHT_BLUE_WOOL        = mc("light_blue_wool");
+    public static final Identifier YELLOW_WOOL            = mc("yellow_wool");
+    public static final Identifier LIME_WOOL              = mc("lime_wool");
+    public static final Identifier PINK_WOOL              = mc("pink_wool");
+    public static final Identifier GRAY_WOOL              = mc("gray_wool");
+    public static final Identifier LIGHT_GRAY_WOOL        = mc("light_gray_wool");
+    public static final Identifier CYAN_WOOL              = mc("cyan_wool");
+    public static final Identifier PURPLE_WOOL            = mc("purple_wool");
+    public static final Identifier BLUE_WOOL              = mc("blue_wool");
+    public static final Identifier BROWN_WOOL             = mc("brown_wool");
+    public static final Identifier GREEN_WOOL             = mc("green_wool");
+    public static final Identifier RED_WOOL               = mc("red_wool");
+    public static final Identifier BLACK_WOOL             = mc("black_wool");
+    /* Rails */
+    public static final Identifier RAIL                   = mc("rail");
+    public static final Identifier POWERED_RAIL           = mc("powered_rail");
+    public static final Identifier DETECTOR_RAIL          = mc("detector_rail");
+    /* Redstone */
+    public static final Identifier REDSTONE               = mc("redstone");
+    public static final Identifier PISTON                 = mc("piston");
+    public static final Identifier STICKY_PISTON          = mc("sticky_piston");
+    public static final Identifier DISPENSER              = mc("dispenser");
+    public static final Identifier DROPPER                = mc("dropper");
+    public static final Identifier NOTE_BLOCK             = mc("note_block");
 }
