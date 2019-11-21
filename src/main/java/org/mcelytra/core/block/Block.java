@@ -9,6 +9,9 @@
 
 package org.mcelytra.core.block;
 
-public class Block
+/**
+ * Represents a block.
+ */
+public interface Block
 {
 }
