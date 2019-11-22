@@ -13,6 +13,7 @@ import org.apache.logging.log4j.Logger;
 import org.aperlambda.lambdacommon.Identifier;
 import org.jetbrains.annotations.NotNull;
 import org.mcelytra.core.addon.AddonManager;
+import org.mcelytra.core.block.Block;
 import org.mcelytra.core.entity.EntityPlayer;
 import org.mcelytra.core.item.Item;
 import org.mcelytra.core.registry.DefaultedRegistry;
@@ -26,10 +27,11 @@ import java.util.Collection;
  */
 public class Elytra
 {
-    public static final File                    CONFIGURATION_PATH = new File("config/");
-    public static final Identifier              AIR_ID             = new Identifier("minecraft", "air");
-    public static final DefaultedRegistry<Item> ITEM_REGISTRY      = new DefaultedRegistry<>(AIR_ID);
-    private static      Server                  handle;
+    public static final File                     CONFIGURATION_PATH = new File("config/");
+    public static final Identifier               AIR_ID             = new Identifier("minecraft", "air");
+    public static final DefaultedRegistry<Block> BLOCK_REGISTRY     = new DefaultedRegistry<>(AIR_ID);
+    public static final DefaultedRegistry<Item>  ITEM_REGISTRY      = new DefaultedRegistry<>(AIR_ID);
+    private static      Server                   handle;
 
     /**
      * Initializes Elytra API singleton.

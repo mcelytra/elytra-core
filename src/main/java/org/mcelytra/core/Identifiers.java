@@ -100,6 +100,7 @@ public final class Identifiers
     public static final Identifier FERN                           = mc("fern");
     public static final Identifier DEAD_BUSH                      = mc("dead_bush");
     public static final Identifier SEAGRASS                       = mc("seagrass");
+    public static final Identifier TALL_SEAGRASS                  = mc("tall_seagrass");
     public static final Identifier SEA_PICKLE                     = mc("sea_pickle");
     public static final Identifier WHITE_WOOL                     = mc("white_wool");
     public static final Identifier ORANGE_WOOL                    = mc("orange_wool");
@@ -166,6 +167,8 @@ public final class Identifiers
     public static final Identifier MOSSY_COBBLESTONE              = mc("mossy_cobblestone");
     public static final Identifier OBSIDIAN                       = mc("obsidian");
     public static final Identifier TORCH                          = mc("torch");
+    public static final Identifier WALL_TORCH                     = mc("wall_torch");
+    public static final Identifier FIRE                           = mc("fire");
     public static final Identifier END_ROD                        = mc("end_rod");
     public static final Identifier CHORUS_PLANT                   = mc("chorus_plant");
     public static final Identifier CHORUS_FLOWER                  = mc("chorus_flower");
@@ -200,6 +203,7 @@ public final class Identifiers
     public static final Identifier NETHERRACK                     = mc("netherrack");
     public static final Identifier SOUL_SAND                      = mc("soul_sand");
     public static final Identifier GLOWSTONE                      = mc("glowstone");
+    public static final Identifier NETHER_PORTAL                  = mc("nether_portal");
     public static final Identifier JACK_O_LANTERN                 = mc("jack_o_lantern");
     public static final Identifier INFESTED_STONE                 = mc("infested_stone");
     public static final Identifier INFESTED_COBBLESTONE           = mc("infested_cobblestone");
@@ -239,7 +243,6 @@ public final class Identifiers
     public static final Identifier SANDSTONE_STAIRS               = mc("sandstone_stairs");
     public static final Identifier EMERALD_ORE                    = mc("emerald_ore");
     public static final Identifier ENDER_CHEST                    = mc("ender_chest");
-    public static final Identifier TRIPWIRE_HOOK                  = mc("tripwire_hook");
     public static final Identifier EMERALD_BLOCK                  = mc("emerald_block");
     public static final Identifier SPRUCE_STAIRS                  = mc("spruce_stairs");
     public static final Identifier BIRCH_STAIRS                   = mc("birch_stairs");
@@ -560,12 +563,6 @@ public final class Identifiers
     public static final Identifier PAINTING                       = mc("painting");
     public static final Identifier GOLDEN_APPLE                   = mc("golden_apple");
     public static final Identifier ENCHANTED_GOLDEN_APPLE         = mc("enchanted_golden_apple");
-    public static final Identifier OAK_SIGN                       = mc("oak_sign");
-    public static final Identifier SPRUCE_SIGN                    = mc("spruce_sign");
-    public static final Identifier BIRCH_SIGN                     = mc("birch_sign");
-    public static final Identifier JUNGLE_SIGN                    = mc("jungle_sign");
-    public static final Identifier ACACIA_SIGN                    = mc("acacia_sign");
-    public static final Identifier DARK_OAK_SIGN                  = mc("dark_oak_sign");
     public static final Identifier BUCKET                         = mc("bucket");
     public static final Identifier WATER_BUCKET                   = mc("water_bucket");
     public static final Identifier LAVA_BUCKET                    = mc("lava_bucket");
@@ -601,6 +598,7 @@ public final class Identifiers
     public static final Identifier INK_SAC                        = mc("ink_sac");
     public static final Identifier RED_DYE                        = mc("red_dye");
     public static final Identifier GREEN_DYE                      = mc("green_dye");
+    public static final Identifier COCOA                          = mc("cocoa");
     public static final Identifier COCOA_BEANS                    = mc("cocoa_beans");
     public static final Identifier LAPIS_LAZULI                   = mc("lapis_lazuli");
     public static final Identifier PURPLE_DYE                     = mc("purple_dye");
@@ -672,13 +670,17 @@ public final class Identifiers
     public static final Identifier ITEM_FRAME                     = mc("item_frame");
     public static final Identifier FLOWER_POT                     = mc("flower_pot");
     public static final Identifier CARROT                         = mc("carrot");
+    public static final Identifier CARROTS                        = mc("carrots");
     public static final Identifier POTATO                         = mc("potato");
+    public static final Identifier POTATOES                       = mc("potatoes");
     public static final Identifier BAKED_POTATO                   = mc("baked_potato");
     public static final Identifier POISONOUS_POTATO               = mc("poisonous_potato");
     public static final Identifier MAP                            = mc("map");
     public static final Identifier GOLDEN_CARROT                  = mc("golden_carrot");
     public static final Identifier SKELETON_SKULL                 = mc("skeleton_skull");
+    public static final Identifier SKELETON_WALL_SKULL            = mc("skeleton_wall_skull");
     public static final Identifier WITHER_SKELETON_SKULL          = mc("wither_skeleton_skull");
+    public static final Identifier WITHER_SKELETON_WALL_SKULL     = mc("witherr_skeleton_wall_skull");
     public static final Identifier PLAYER_HEAD                    = mc("player_head");
     public static final Identifier ZOMBIE_HEAD                    = mc("zombie_head");
     public static final Identifier CREEPER_HEAD                   = mc("creeper_head");
@@ -770,10 +772,26 @@ public final class Identifiers
     public static final Identifier CAMPFIRE                       = mc("campfire");
     public static final Identifier HONEYCOMB                      = mc("honeycomb");
     public static final Identifier BEE_NEST                       = mc("bee_nest");
-    public static final Identifier BEEHIVE                       = mc("beehive");
+    public static final Identifier BEEHIVE                        = mc("beehive");
     public static final Identifier HONEY_BOTTLE                   = mc("honey_bottle");
     public static final Identifier HONEY_BLOCK                    = mc("honey_block");
     public static final Identifier HONEYCOMB_BLOCK                = mc("honeycomb_block");
+    /* Signs */
+    public static final Identifier OAK_SIGN                       = mc("oak_sign");
+    public static final Identifier SPRUCE_SIGN                    = mc("spruce_sign");
+    public static final Identifier BIRCH_SIGN                     = mc("birch_sign");
+    public static final Identifier JUNGLE_SIGN                    = mc("jungle_sign");
+    public static final Identifier ACACIA_SIGN                    = mc("acacia_sign");
+    public static final Identifier DARK_OAK_SIGN                  = mc("dark_oak_sign");
+    public static final Identifier OAK_WALL_SIGN                  = mc("oak_wall_sign");
+    public static final Identifier SPRUCE_WALL_SIGN               = mc("spruce_wall_sign");
+    public static final Identifier BIRCH_WALL_SIGN                = mc("birch_wall_sign");
+    public static final Identifier JUNGLE_WALL_SIGN               = mc("jungle_wall_sign");
+    public static final Identifier ACACIA_WALL_SIGN               = mc("acacia_wall_sign");
+    public static final Identifier DARK_OAK_WALL_SIGN             = mc("dark_oak_wall_sign");
+    /* Fluids */
+    public static final Identifier WATER                          = mc("water");
+    public static final Identifier LAVA                           = mc("lava");
     /* Transportation */
     public static final Identifier ELYTRA                         = mc("elytra");
     public static final Identifier MINECART                       = mc("minecart");
@@ -788,7 +806,9 @@ public final class Identifiers
     public static final Identifier ACTIVATOR_RAIL                 = mc("activator_rail");
     /* Redstone */
     public static final Identifier REDSTONE                       = mc("redstone");
+    public static final Identifier REDSTONE_WIRE                  = mc("redstone_wire");
     public static final Identifier REDSTONE_TORCH                 = mc("redstone_torch");
+    public static final Identifier REDSTONE_WALL_TORCH            = mc("redstone_wall_torch");
     public static final Identifier REDSTONE_BLOCK                 = mc("redstone_block");
     public static final Identifier REPEATER                       = mc("repeater");
     public static final Identifier COMPARATOR                     = mc("comparator");
@@ -811,6 +831,7 @@ public final class Identifiers
     public static final Identifier HEAVY_WEIGHTED_PRESSURE_PLATE  = mc("heavy_weighted_pressure_plate");
     public static final Identifier PISTON                         = mc("piston");
     public static final Identifier STICKY_PISTON                  = mc("sticky_piston");
+    public static final Identifier PISTON_HEAD                    = mc("piston_head");
     public static final Identifier REDSTONE_LAMP                  = mc("redstone_lamp");
     public static final Identifier OBSERVER                       = mc("observer");
     public static final Identifier DISPENSER                      = mc("dispenser");
@@ -832,6 +853,8 @@ public final class Identifiers
     public static final Identifier JUNGLE_TRAPDOOR                = mc("jungle_trapdoor");
     public static final Identifier ACACIA_TRAPDOOR                = mc("acacia_trapdoor");
     public static final Identifier DARK_OAK_TRAPDOOR              = mc("dark_oak_trapdoor");
+    public static final Identifier TRIPWIRE_HOOK                  = mc("tripwire_hook");
+    public static final Identifier TRIPWIRE                       = mc("tripwire");
     /* Creative utilities */
     public static final Identifier DEBUG_STICK                    = mc("debug_stick");
     public static final Identifier COMMAND_BLOCK                  = mc("command_block");
